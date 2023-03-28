@@ -1,0 +1,7 @@
+image: "thangap05/demo-nsearch"
+tag:  "latest"
+replicas: "2"
+
+env:
+  variable: "MYNAME"
+  value: "PrabhuThanga"
