@@ -62,6 +62,14 @@ k port-forward service/counter-svc 8088:80 -n counter
 
 4. mysql service is available to use from counter application as "mysql.mysql.svc.cluster.local:3306" with root password "pass123"
 
+
+5. Execute the below command if node-exporter pod fails, it's a bug
+
+```
+kubectl patch ds loki-prometheus-node-exporter --type "json" -p '[{"op": "remove", "path" : "/spec/template/spec/containers/0/volumeMounts/2/mountPropagation"}]' -n loki
+
+```
+
 ## Requirements
 
 | Name | Version |
