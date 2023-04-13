@@ -82,43 +82,6 @@ resource "helm_release" "loki" {
 
 }
 
-resource "helm_release" "loki" {
-  name       = "loki"
-  repository = "https://grafana.github.io/loki/charts"
-  chart      = "loki-stack"
-  namespace  = "loki"
-  create_namespace = true
-
-  set {
-    name  = "grafana.enabled"
-    value = "true"
-  }
-
-  set {
-    name  = "prometheus.enabled"
-    value = "true"
-  }
-  set {
-    name  = "prometheus.alertmanager.persistentVolume.enabled"
-    value = "false"
-  }
-
-  set {
-    name  = "prometheus.server.persistentVolume.enabled"
-    value = "false"
-  }
-
-  set {
-    name  = "grafana.sidecar.dashboards.enabled"
-    value = "true"
-  }
-
-  set {
-    name  = "loki.persistence.enabled"
-    value = "false"
-  }
-
-}
 
 resource "helm_release" "counter" {
   name       = "counter"
